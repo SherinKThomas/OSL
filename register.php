@@ -225,13 +225,13 @@ return true;
         </div>
 		<div class="form-group">
 				<i class="fa fa-lock"></i>
-				<input type="text" class="form-control" name="password" id='passwordid' placeholder="Password"  onBlur="validatingpassword1()"  required="required">
+				<input type="password" class="form-control" name="password" id='passwordid' placeholder="Password"  onBlur="validatingpassword1()"  required="required">
 				<span id="user-availability-statusa" name='yu' style="font-size:12px;"></span>
         </div>
 		<div class="form-group">
 					<i class="fa fa-lock"></i>
 					<i class="fa fa-check"></i>
-				<input type="text" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+				<input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
 
         </div>
         <div class="form-group">

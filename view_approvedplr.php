@@ -1,6 +1,7 @@
 
 <html>
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href='style.css' type='text/css'>
@@ -10,9 +11,24 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    table{
+      display:inline-table !IMPORTANT;
+    }
 
+    body{
+background: #5ca057;
+
+    }
+
+    .table>thead>tr>th{
+border-bottom: 2px solid #ad6a6900;
+
+    }
+  </style>
 </head>
 <body>
+
   <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -31,46 +47,40 @@
         </ul>
       </div>
     </nav>
-  <style>
-  body{
-
-    background-color: #5ca057;
-  }
-tr{
-background-color: #5ca057;
-
-}
-
-</style>
 <div>
-    <form action="club_profile.php" method="POST">
-  <table class="table  table-advance " style="margin:100px 200px;  width:50%; border:3px solid black;">
+
+      <div class="container">
+<h2><center>Team Members</center></h2>
+  <table class="table table-responsive table-hover">
    <?php
    session_start();
-   include('database.php');
+  include('database.php');
   $a=$_SESSION['user'];
-  $query="select cl_name, cl_username, cl_email, cl_address, cl_sponsor, cl_reg_number, cl_place, cl_phone from club_reg_tbl where cl_reg_id='$a'";
-  $result=mysqli_query($con,$query);
-  echo "<h2><center>Club Profile View </center></h2>";
-  echo "<tr><th></th><th>Name</th><th>Username</th><th>Email</th><th>Address</th><th>Sponsor</th><th>Register Number</th><th>City</th><th>Phone</th></tr>";
+  $query="select * from club_members a inner join player_reg_tbl b on a.player_id=b.p_reg_id where status=1 AND club_id=$a";
+  // die($query);
+  $result=mysqli_query($con,$query) or die('Query Error');
+  echo "<thead><th></th><th>Name</th><th>Email</th><th>Address</th><th>Age</th><th>Gender</th><th>Position</th><th>City</th><th>Phone</th>";
+  if (!$result){
+    die($query);
+  }
   while($r=mysqli_fetch_array($result))
   {
   echo "<tr>";
-  echo "<td><th>".$r['cl_name'].
-       "</td><td>".$r['cl_username'].
-       "</td><td>".$r['cl_email'].
-       "</td><td>".$r['cl_address'].
-       "</td><td>".$r['cl_sponsor'].
-       "</td><td>".$r['cl_reg_number'].
-       "</td><td>".$r['cl_place'].
-       "</td><td>".$r['cl_phone']."</td></th>";
-
+  echo "<td><th>".$r['p_name'].
+       "</td><td>".$r['p_email'].
+       "</td><td>".$r['p_address'].
+       "</td><td>".$r['p_age'].
+       "</td><td>".$r['p_gender'].
+       "</td><td>".$r['p_position'].
+       "</td><td>".$r['p_city'].
+       "</td><td>".$r['p_phone']."</td></th>";
 
 echo "</tr>";
 }
    ?>
+ </tbody>
 </table>
-</form>
+</div>
 </div>
 </body>
 </html>

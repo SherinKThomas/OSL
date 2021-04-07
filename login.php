@@ -20,7 +20,7 @@ if (!isset($_POST['login']))
 	if (mysqli_num_rows($result)>0){
 		//session
 		$_SESSION['user'] = mysqli_fetch_array($result)['p_reg_id'];
-		header('Location: index_player.html');
+		header('Location: index_player.php');
 	} else {
 		//Didnt' find player . . . checking coach
 		$result = mysqli_query($con, $sql2);
@@ -28,7 +28,7 @@ if (!isset($_POST['login']))
 		if (mysqli_num_rows($result)>0){
 			//session
 			$_SESSION['user'] = mysqli_fetch_array($result)['c_reg_id'];
-			header('Location: index_coach.html');
+			header('Location: index_coach.php');
 		} else {
 			//Didn't find coach checking club
 			$result = mysqli_query($con, $sql3);
@@ -37,7 +37,7 @@ if (!isset($_POST['login']))
 			{
 				//session
 				$_SESSION['user'] = mysqli_fetch_array($result)['cl_reg_id'];
-				header('Location: index_club.html');
+				header('Location: index_club.php');
 			}
 		}
 	}

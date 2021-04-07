@@ -1,8 +1,7 @@
   <!DOCTYPE html>
   <html lang="en">
   <head>
-
-    <meta charset="utf-8">
+    <title>Updation Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href='style.css' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
@@ -11,9 +10,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Club Updation</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--===============================================================================================-->
   <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -44,7 +40,7 @@
 				if((name1=="")||(!name1.match(letter)))
 				{
 					window.alert("Please enter your name correctly");
-				return false;
+				  return false;
 				}
 			}
 			function valphno()
@@ -61,7 +57,16 @@
 			document.getElementById("num").value="";
 			}
 			}
-
+		function valclub()
+	{
+		var letter=/^[A-Za-z]*$/;
+		var name=document.getElementById("cl").value;
+		if((name=="")||(!name.match(letter)))
+		{
+			window.alert("Please enter the club name correctly ");
+		return false;
+		}
+	}
 	function valcity()
 {
 	var letter=/^[A-Za-z]*$/;
@@ -72,7 +77,18 @@
 	return false;
 	}
 }
+		function valage()
+	{
+		var letter=/^[1-9]{1}[0-9]{1}]*$/;
+		var name=document.getElementById("ag").value;
+		if((name=="")||(!name.match(letter)))
+		{
+			window.alert("Please enter your age correctly");
+		return false;
+		}
+	}
 </script>
+
 <style>
 
 .container-login100{
@@ -86,29 +102,22 @@ background: #d7e8e0;
 
 }
 
-body{
-background: #5ca057;
-
-}
-
 </style>
+
   </head>
   <body>
-
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Club</a>
+          <a class="navbar-brand" href="#">Coach</a>
         </div>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="index_club.php">Home</a></li>
+          <li class="active"><a href="index_coach.php">Home</a></li>
           <li><a href="#">About</a></li>
-          <li><a href="club_profile.html">Update Profile</a></li>
-    			<li><a href="club_view.php">View Profile</a></li>
-    			 <li><a href="plr_req.php">View Player Request</a></li>
-    			 <li><a href="coach_req.php">View Coach Request</a></li>
-    			  <li><a href="view_approvedplr.php">View Players</a></li>
-    				<li><a href="view_approvedcoach.php">View Coach</a></li>
+          <li><a href="coa_profile.html">Update Profile</a></li>
+    			<li><a href="coa_view.php">View Profile</a></li>
+    			 <li><a href="#">Player Statistic</a></li>
+    			 <li><a href="coach_clublistview.php">View Club</a></li>
           <li><a href="logout.php">Logout</a></li>
         </ul>
       </div>
@@ -117,9 +126,9 @@ background: #5ca057;
     <div class="limiter">
       <div class="container-login100">
         <div class="wrap-login100">
-          <form class="login100-form validate-form" method="post" action="club_profile.php">
+          <form class="login100-form validate-form" method="post" action="coa_profile.php">
             <span class="login100-form-title p-b-26">
-               Updation Form
+                Coach - Profile Updation
             </span>
             <span class="login100-form-title p-b-48">
               <i class="zmdi zmdi-font"></i>
@@ -133,21 +142,41 @@ background: #5ca057;
             <input class="input100" type="textbox" name="address">
             <span class="focus-input100" data-placeholder="Address"></span>
           </div>
+          <div class="wrap-input100 validate-input">
+            <input class="input100" type="text" name="age" id="ag" onblur="valage()">
+            <span class="focus-input100" data-placeholder="Age"></span>
+          </div>
+          <span class="" data-placeholder="Gender" style="font-family: Poppins-Regular;  font-size: 15px;color: #555555;line-height: 1.2;
+    display: block;
+    width: 100%;
+    height: 35px;
+    background: transparent;
+    padding: 0 5px;
+    border-style: none;">Gender</span>
+
+					<div class="wrap-input100 validate-input" style="margin-bottom:10px;" >
+
+
+					</div>
+					<div style="margin-bottom:20px;">
+					<input class="" type="radio" value="male" name="gender1">Male
+					<input class="" type="radio" value="f" name="gender1" >Female
+				</div>
           <div class="wrap-input100 validate-input" >
-            <input class="input100" type="text" name="sponsor">
-            <span class="focus-input100" data-placeholder="Sponsor"></span>
+            <input class="input100" type="text" name="preclub" id="cl" onblur="valclub()">
+            <span class="focus-input100" data-placeholder="Previous Club"></span>
           </div>
           <div class="wrap-input100 validate-input" >
-            <input class="input100" type="text" name="phone" id="num" onblur="valphno()" >
+            <input class="input100" type="text" name="exp">
+            <span class="focus-input100" data-placeholder="Experience"></span>
+          </div>
+          <div class="wrap-input100 validate-input" >
+            <input class="input100" type="text" name="phone" id="num" onblur="valphno()">
             <span class="focus-input100" data-placeholder="Phone"></span>
           </div>
           <div class="wrap-input100 validate-input" >
-            <input class="input100" type="text" name="place" id="ct" onblur="valcity()">
-            <span class="focus-input100" data-placeholder="Place"></span>
-          </div>
-          <div class="wrap-input100 validate-input" >
-            <input class="input100" type="text" name="regnum">
-            <span class="focus-input100" data-placeholder="Register Number"></span>
+            <input class="input100" type="text" name="city" id="ct" onblur="valcity()">
+            <span class="focus-input100" data-placeholder="City"></span>
           </div>
               <div class="container-login100-form-btn">
                   <div class="wrap-login100-form-btn">
@@ -164,11 +193,11 @@ background: #5ca057;
         </form>
       </div>
     </div>
-    </div>
+  </div>
 
-   <div id="dropDownSelect1"></div>
+    <div id="dropDownSelect1"></div>
   <!--===============================================================================================-->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
   <!--===============================================================================================-->
     <script src="vendor/animsition/js/animsition.min.js"></script>
   <!--===============================================================================================-->
@@ -182,6 +211,6 @@ background: #5ca057;
   <!--===============================================================================================-->
     <script src="vendor/countdowntime/countdowntime.js"></script>
   <!--===============================================================================================-->
-    <script src="js/main.js"></script>
-  </body>
-  </html>
+  <script src="js/main.js"></script>
+</body>
+</html>

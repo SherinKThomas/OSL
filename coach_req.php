@@ -1,8 +1,7 @@
 
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link rel="stylesheet" href='style.css' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -30,7 +29,7 @@
         }
     }
 };
-xhttp.open("GET", "clubcancel.php?pid="+userid, true);
+xhttp.open("GET", "clubcancel_coach.php?pid="+userid, true);
 xhttp.send();
   }
   function approve(userid, button)
@@ -42,10 +41,11 @@ xhttp.send();
           console.log(this.responseText);
           if(this.responseText=="SUCCESS"){
             deleterow(button);
+            alert("Approved Successfully");
           }
       }
     };
-xhttp.open("GET", "clubapprove.php?pid="+userid, true);
+xhttp.open("GET", "clubapprove_coach.php?pid="+userid, true);
 xhttp.send();
   }
   </script>
@@ -54,12 +54,10 @@ xhttp.send();
       display:inline-table !IMPORTANT;
     }
 
-body{
+    body{
 background: #5ca057;
 
-}
-
-
+    }
   </style>
 </head>
 <body>
@@ -85,13 +83,13 @@ background: #5ca057;
 <div>
 
       <div class="container">
-<h2><center>Player Request  </center></h2>
+<h2><center>Coach Request  </center></h2>
   <table class="table table-responsive table-hover">
    <?php
    session_start();
    include('database.php');
   $a=$_SESSION['user'];
-  $query="select * from req_tbl a inner join player_reg_tbl b on a.p_reg_id=b.p_reg_id where status=0 AND cl_reg_id=$a";
+  $query="select * from `coach_req_tbl` a inner join coach_reg_tbl b on a.c_reg_id=b.c_reg_id where status=0 AND cl_reg_id=$a";
   // die($query);
   $result=mysqli_query($con,$query) or die('Query Error');
   echo "<thead><th></th><th>Name</th><th>Email</th><th>Address</th><th>Age</th><th>Gender</th><th>Position</th><th>Previous Club</th><th>City</th><th>Phone</th><th colspan='2'>Action</th></thead><tbody id='tbody'>";
@@ -101,17 +99,17 @@ background: #5ca057;
   while($r=mysqli_fetch_array($result))
   {
   echo "<tr>";
-  echo "<td><th>".$r['p_name'].
-       "</td><td>".$r['p_email'].
-       "</td><td>".$r['p_address'].
-       "</td><td>".$r['p_age'].
-       "</td><td>".$r['p_gender'].
-       "</td><td>".$r['p_position'].
-       "</td><td>".$r['p_pre_club'].
-       "</td><td>".$r['p_city'].
-       "</td><td>".$r['p_phone']."</td></th>".
-       "</td><td><button class='btn btn-primary' onclick=\"approve(".$r['p_reg_id'].", this)\">Approve</button>".
-       "</td><td><button class='btn btn-danger' onclick=\"cancel(".$r['p_reg_id'].", this)\">Cancel</button>";
+  echo "<td><th>".$r['c_name'].
+       "</td><td>".$r['c_email'].
+       "</td><td>".$r['c_address'].
+       "</td><td>".$r['c_age'].
+       "</td><td>".$r['c_gender'].
+       "</td><td>".$r['c_exp'].
+       "</td><td>".$r['c_pre_club'].
+       "</td><td>".$r['c_city'].
+       "</td><td>".$r['c_phone']."</td></th>".
+       "</td><td><button class='btn btn-primary' onclick=\"approve(".$r['c_reg_id'].", this)\">Approve</button>".
+       "</td><td><button class='btn btn-danger' onclick=\"cancel(".$r['c_reg_id'].", this)\">Cancel</button>";
 
 echo "</tr>";
 }

@@ -19,7 +19,7 @@ if(isset($_POST['updatebtn']))
     ?>
     <script>alert("Updated successfull.");</script>;
     <?php
-	   echo "<meta http-equiv='refresh' content='0;url=index_club.html'>";
+	   echo "<meta http-equiv='refresh' content='0;url=index_club.php'>";
 	}
 	else
 	{
