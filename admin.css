@@ -1,0 +1,218 @@
+body
+{
+
+}
+
+h3
+{
+margin-left: 20px;
+
+}
+h3 span
+{
+  color: red;
+}
+.form-form-parent
+{
+  display: flex;
+}
+
+.formrow
+{
+
+width: 30%;
+padding: 1%;
+align-content: center;
+}
+.formrowparent
+{
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+padding: 1%;
+  width: 50%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.subbutton
+{
+  text-align: center;
+}
+
+.success-msg
+{
+  border: 1px solid green;
+  color: #3c763d;
+  padding: 5px;
+  background-color: #dff0d8;
+  width: 20%;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.formrowparent table tr
+{
+line-height: 28px;
+}
+
+.formrowparent table tr td i
+{
+  cursor: pointer;
+  color: #c0392b;
+}
+/* View Club CSS down here */
+
+.formrowparentviewclub
+{
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+padding: 1%;
+  width: 80%
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.formrowparentviewclub table tr
+{
+line-height: 28px;
+}
+
+.formrowparentviewclub table tr td i
+{
+  cursor: pointer;
+  color: #c0392b;
+}
+
+.printbutton input[type=button]
+{
+  width: 20%;
+  background-color: orange;
+  border-radius: 5px;
+  border: none;
+  padding: 7px;
+  color: white;
+
+}
+
+.errormsg
+{
+  width: 100%;
+  color: white;
+  background-color: #ff7979;
+  border: none;
+  border-radius: 5px;
+  padding: 1%;
+}
+
+/* Club Dashboard CSS starts here */
+
+.loggedin
+{
+  color: white;
+  float: right;
+  position: relative;
+  left: 50px;
+  top: 25px;
+}
+.loggedin span
+{
+  color: #f0932b;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Notifications club CSS HEre */
+
+.pendingstatus
+{
+  background-color: #f0932b;
+  color: white;
+  padding: 2px;
+  border: none;
+  border-radius: 5px;
+  width: 150px;
+  height: 25px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.approvedstatus
+{
+  background-color: #6ab04c;
+  color: white;
+  padding: 2px;
+  border: none;
+  border-radius: 5px;
+  width: 150px;
+  height: 25px;
+  cursor: pointer;
+  text-align: center;
+
+}
+
+.rejectstatus
+{
+  background-color: #c23616;
+  color: white;
+  padding: 2px;
+  border: none;
+  border-radius: 5px;
+  width: 150px;
+  height: 25px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.norequest
+{
+  padding: 1%;
+  background-color: #273c75;
+  color: white;
+  border-radius: 7px;
+
+}
+
+
+/* Club notification CSS Here */
+
+.boxs
+{
+  display: inline-flex;
+  width: 100%;
+
+}
+.boxs > div {
+  margin: 6px;
+}
+
+.boxs1
+{
+  padding: 2%;
+  background-color: #44bd32;
+  color: white;
+  width: 50%;
+  line-height: 28px;
+
+
+}
+
+.boxs1 p
+{
+  font-weight: bold;
+  color: #c23616;
+  font-size: 18px;
+}
+
+.boxs1 span
+{
+  font-size: 25px;
+}
+
+.boxs1 input[type=button]
+{
+  padding: 1%;
+  color: white;
+  background-color: #192a56;
+  border: none;
+  border-radius: 20px;
+}
